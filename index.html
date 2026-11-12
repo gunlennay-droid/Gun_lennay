@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gun_lennay | Gamer & Créateur de Contenu</title>
+    <meta name="description" content="Portfolio officiel de Gun_lennay : Gameplay Blood Strike, God of War, montages CapCut et tech mobile. Originaire du Bénin.">
+
+    <!-- Polices gaming & tech -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icônes FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #07080c;
+            --surface: #0f1118;
+            --surface-card: #141722;
+            --border: rgba(255, 255, 255, 0.08);
+            
+            /* Couleurs demandées : Vert, Violet, Argent */
+            --green: #00ff88;
+            --violet: #9d4edd;
+            --silver: #cbd5e1;
+            --silver-bright: #f1f5f9;
+            --text-muted: #8e9bb0;
+
+            --gradient-silver: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #64748b 100%);
+            --gradient-glow: linear-gradient(135deg, var(--green), var(--violet));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Lueur d'ambiance */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, rgba(0, 255, 136, 0.08) 50%, transparent 70%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(16px);
+            background: rgba(7, 8, 12, 0.85);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1.1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand span.green { color: var(--green); }
+        .brand span.violet { color: var(--violet); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 6% 3.5rem;
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .country-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--green);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.8rem);
+            line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .silver-text {
+            background: var(--gradient-silver);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .slogan {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--green);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .hero p.bio {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.35);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(0, 255, 136, 0.6);
+        }
+
+        .btn-violet {
+            background: var(--violet);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(157, 78, 221, 0.35);
+        }
+
+        .btn-violet:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(157, 78, 221, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--silver-bright);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--silver);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            max-width: 1050px;
+            margin: 3.5rem auto;
+            padding: 0 6%;
+        }
+
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.6rem 1.2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-glow);
+        }
+
+        .stat-box h3 {
+            font-size: 1.6rem;
+            color: var(--silver-bright);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-box p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Global */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4.5rem 6%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.2rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            margin-bottom: 0.4rem;
+        }
+
+        .section-header h2 span {
+            color: var(--green);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Cartes d'activités */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .feature-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 255, 136, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .icon-green { color: var(--green); }
+        .icon-violet { color: var(--violet); }
+        .icon-silver { color: var(--silver); }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Vitrine Vidéo */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .video-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(157, 78, 221, 0.4);
+        }
+
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            background: #000;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 1.4rem;
+        }
+
+        .video-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--green);
+        }
+
+        .video-info h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Hub Communauté & WhatsApp */
+        .community-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08) 0%, rgba(157, 78, 221, 0.08) 100%);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 24px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .community-card h2 {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .community-card p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--silver-bright);
+            padding: 12px 22px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link.wa:hover { border-color: #25d366; color: #25d366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.25); }
+        .social-link.tt:hover { border-color: #ff0050; color: #ff0050; box-shadow: 0 0 20px rgba(255, 0, 80, 0.25); }
+        .social-link.yt:hover { border-color: #ff0000; color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.25); }
+        .social-link.ig:hover { border-color: #e1306c; color: #e1306c; box-shadow: 0 0 20px rgba(225, 48, 108, 0.25); }
+
+        /* Contact */
+        .contact-box {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .contact-box a.mail {
+            font-size: 1.3rem;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            padding: 14px 28px;
+            border-radius: 50px;
+            transition: all 0.25s;
+        }
+
+        .contact-box a.mail:hover {
+            background: var(--green);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 6%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero-actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="brand">
+            <span class="silver">GUN</span><span class="green">_</span><span class="violet">LENNAY</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">Univers</a>
+            <a href="#contenus">Contenus</a>
+            <a href="#videos">Vidéos</a>
+            <a href="#communaute">Réseaux</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- En-tête Hero -->
+    <header class="hero">
+        <div class="country-badge">
+            <i class="fa-solid fa-crosshairs"></i> BÉNIN 🇧🇯 • MOBILE TECH & GAMING
+        </div>
+        
+        <h1><span class="silver-text">GUN_LENNAY</span></h1>
+        <div class="slogan">« Discret dehors, létal en partie »</div>
+        
+        <p class="bio">
+            Gamer passionné et réparateur de téléphones portables en tout genre venu du Bénin. 
+            Armé sur <strong>Blood Strike</strong> et <strong>God of War</strong>, je maîtrise autant le gameplay sous haute pression que les circuits des smartphones. Objectif : marquer le monde du gaming.
+        </p>
+
+        <div class="hero-actions">
+            <a href="https://whatsapp.com/channel/0029VbDl8kzLY6d1CcBnsB0H" target="_blank" class="btn btn-green">
+                <i class="fa-brands fa-whatsapp"></i> Rejoindre la Chaîne
+            </a>
+            <a href="https://www.tiktok.com/@gun_lennay?_r=1&_t=ZN-9BKKbX9VhJO" target="_blank" class="btn btn-violet">
+                <i class="fa-brands fa-tiktok"></i> Me suivre sur TikTok
+            </a>
+            <a href="#videos" class="btn btn-outline">
+                <i class="fa-solid fa-play"></i> Voir les montages
+            </a>
+        </div>
+    </header>
+
+    <!-- Compteurs rapides -->
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h3>BLOOD STRIKE</h3>
+            <p>Clutchs & Ranked Létal</p>
+        </div>
+        <div class="stat-box">
+            <h3>GOD OF WAR</h3>
+            <p>Combats Mythiques</p>
+        </div>
+        <div class="stat-box">
+            <h3>CAPCUT PRO</h3>
+            <p>Montages Shorts & Longs</p>
+        </div>
+        <div class="stat-box">
+            <h3>TECH REPAIR</h3>
+            <p>Expertise Smartphones</p>
+        </div>
+    </div>
+
+    <!-- Section Ce que je propose -->
+    <section id="contenus">
+        <div class="section-header">
+            <h2>CE QUE JE <span>PRODUIS</span></h2>
+            <p>Du jeu de haut niveau, du montage bien rythmé et des directs exclusifs.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-bolt-lightning feature-icon icon-green"></i>
+                <h3>Montages CapCut Viraux</h3>
+                <p>Des cuts ultra dynamiques synchronisés au beat pour TikTok et Shorts. Transitions fluides, zooms et son percutant.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-clapperboard feature-icon icon-violet"></i>
+                <h3>Vidéos Longues YouTube</h3>
+                <p>Gameplay complet, stratégies, analyses et moments forts sur Blood Strike et les aventures épiques de God of War.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-satellite-dish feature-icon icon-silver"></i>
+                <h3>Événements & Lives</h3>
+                <p>Sessions en direct pour jouer avec la communauté, participer à des tournois et partager des moments en live.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-mobile-screen-button feature-icon icon-green"></i>
+                <h3>Hardware & Réparation Mobile</h3>
+                <p>Réparateur de téléphones en tout genre : un vrai gamer qui optimise son matos pour avoir 0 lag et 100% de fluidité.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Vidéos / Portfolio -->
+    <section id="videos">
+        <div class="section-header">
+            <h2>EXTRAITS & <span>MONTAGES</span></h2>
+            <p>Un aperçu de mon style de jeu et de mes créations (remplacez par vos propres vidéos).</p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Blood Strike Edit" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Blood Strike</span>
+                    <h4>Gameplay Létal & Clutch</h4>
+                    <p>Montage synchronisé CapCut • Speed ramp & SFX.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="God of War Highlight" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">God of War</span>
+                    <h4>Affrontement Mythique</h4>
+                    <p>Format long YouTube • Immersion totale & cinématique.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Live & Moments Drôles" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Live Event</span>
+                    <h4>Best-Of & Moments Clés</h4>
+                    <p>Compilation des meilleurs moments en stream avec les abonnés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communauté & Réseaux -->
+    <section id="communaute">
+        <div class="community-card">
+            <h2>REJOINS L'ÉQUIPE <span style="color: var(--green);">GUN_LENNAY</span></h2>
+            <p>Retrouve-moi sur mes plateformes officielles. Sois aux premières loges pour les nouveaux montages, les astuces gaming et les annonces de lives.</p>
+
+            <div class="social-buttons">
+                <a href="https://whatsapp.com/channel/0029VbDl8kzLY6d1CcB
